@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Book Management
+        </title>
+        <link rel="stylesheet" href="book.css">
+        <script type="text/javascript" src="book.js"></script> 
+
+    </head>
+    <body>
+        <header id="bookHeader"> Book management System</header>
+        <section id="sec">
+            <nav id="navbar">
+                <ul id="menu">
+                    <li><a onclick="addBook()" href="#">Add book</a></li>
+                    <li><a onclick="removeBook()" href="#">Remove Book</a></li>
+                    <li><a onclick="editBook()" href="#">Edit Book</a></li>
+                    <li><a onclick="showAllBook()" href="#">Show all books</a></li>
+                </ul>
+            </nav>
+
+
+            <articale id="articale">
+                <div id="data">
+                    <table id="bookTable" >
+                        <tr>
+                            <td><label>Book Name</label></td>
+                            <td>
+                                <input type="text" id="bookName">
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                            <td><label>Auther Name</label></td>
+                            <td>
+                                <input type="text" id="autherName">
+                            </td>
+                        </tr> -->
+                        <tr id="del" hidden="true">
+                            <td><label>Auther Name</label></td>
+                            <td>
+                                <input type="text" id="delete">
+                            </td>
+                        </tr>
+                        <!-- <tr><td colspan="2"><button id="addBtn"> Add</td></tr> -->
+                    </table>
+                    <p id="showBook"> </p>
+
+                </div>
+                
+            </articale>
+
+            <aside id="aside">
+                A book is a medium for recording information in the form of writing or images, typically composed of many pages (made of papyrus, parchment, vellum, or paper) bound together and protected by a cover.[1] The technical term for this physical arrangement is codex (plural, codices). In the history of hand-held physical supports for extended written compositions or records, the codex replaces its predecessor, the scroll. A single sheet in a codex is a leaf and each side of a leaf is a page.
+
+                As an intellectual object, a book is prototypically a composition of such great length that it takes a considerable investment of time to compose.
+            </aside>
+
+        </section>
+
+        <footer id="footer">
+            some footer text
+        </footer>
+
+
+        
+    </body>
+</html>
