@@ -1,0 +1,6 @@
+table,th,td{
+    table-layout: fixed;
+    border: 2px solid indianred;
+    margin: 5px;
+    padding: 5px;
+}

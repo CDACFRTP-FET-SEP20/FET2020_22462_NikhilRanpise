@@ -1,0 +1,21 @@
+.circle{
+    display: inline;
+}
+.redC{
+background: red;
+border-radius: 50%;
+width: 100px;
+height: 100px;
+}
+.blueC{
+background: blue;
+border-radius: 50%;
+width: 100px;
+height: 100px;
+}
+.greenC{
+background: green;
+border-radius: 50%;
+width: 100px;
+height: 100px;
+}
