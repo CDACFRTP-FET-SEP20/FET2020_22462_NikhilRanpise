@@ -1,0 +1,19 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Embedding script tag in html document </title>
+        <script>var headParam= 10;</script>
+        <hr>
+        
+    </head>
+    <body> 
+    <script>var bodyParam=20;</script>
+    <hr>
+
+    <script src="common.js"></script>
+    <script src="mathFunction.js"></script>
+
+    <script>var res=addNumbers(headParam,bodyParam) ;</script>
+        <hr>
+    </body>
+</html>

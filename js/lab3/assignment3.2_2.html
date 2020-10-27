@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>String</title>
+    </head>
+    <body>
+        Enter character <input type="text" id="ch">
+        <button id="btn" onclick="check()" value="search">search </button>
+        <script>
+            var companyName="Cybage Software Pvt Ltd"; 
+            function check(){
+        var ch = document.getElementById("ch").value;
+
+        var x;
+        var flag=false;
+        for(x=0;x<companyName.length;x++){
+            if(companyName.charAt(x)==ch){
+                flag=true;
+                break;
+            }
+        }
+            if(flag)
+            document.write("character location= "+ x+" ");
+            else
+            document.write("character not found") ;
+            document.write(" <br>SubString   "+  companyName.substr(0,15));
+            document.write( " <br>Upper Caser    "+companyName.toUpperCase())
+            document.write(" <br>Lower Caser    "+ companyName.toLowerCase())
+            }
+        </script>
+    </body>
+</html>

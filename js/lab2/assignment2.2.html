@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Interest
+        </title>
+    </head>
+    <body>
+        principle=<input type="number" id="p"><br>
+        Rate of interest=<input type="number" id="r"><br>
+        period in years=<input type="number" id="n"><br>
+        <input type="button" onclick="cal()" value="Calculate"> 
+        <p id="pi"></p>
+    </body>
+
+    <script>
+        function cal(){
+            var p= document.getElementById("p").value;
+            var n= document.getElementById("n").value;
+            var r= document.getElementById("r").value;
+
+            var interest=(p*Math.pow((1+(r/100)),n))-p;
+             document.getElementById("pi").innerHTML="your compound interest is "+interest;
+        }
+    </script>
+
+</html>

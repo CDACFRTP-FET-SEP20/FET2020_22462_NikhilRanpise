@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DATE</title>
+    </head>
+    <body>
+        <p id="date"></p>
+        <p id="hr"> </p>
+        <script>
+            var d=new Date();
+            document.getElementById("date").innerHTML=d;
+            var h=d.getHours();
+            if(h<12)
+            document.getElementById("hr").innerHTML="Good Morning";
+            else if(h>=12 || h<=17)
+            document.getElementById("hr").innerHTML="Good Afternoon";
+            else
+            document.getElementById("hr").innerHTML="Good Evening";
+        </script>
+    </body>
+</html>
+<!-- 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DATE</title>
+    </head>
+    <body>
+        
+    </body>
+</html> -->

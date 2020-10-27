@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arary display</title>
+    </head>
+    <body>
+        <input type="text" id="name"> 
+        <button id="add" onclick="addName()">Add</button>
+        <button id="disp" onclick="dispName()">Display</button>
+        <script>
+            var arr=new Array;
+            function addName(){
+                var name=document.getElementById("name").value;
+                arr.push(name);
+                console.log(arr);
+               document.getElementById("name").value=" ";
+
+            }
+            function dispName(){
+                console.log(arr+"disp");
+                document.write("List of students  <hr>");
+                var i;
+                for(i=0;i<arr.length;i++){
+                    document.write(arr[i]+"<br>");
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DATE</title>
+    </head>
+    <body>
+        <h3 id="welcome"></h3>
+        <form onsubmit="return validated()" action="success.html">
+        <table>
+            <tr>
+                <td><label>First name</label></td>
+                <td><input type="text" id="fname" required> </td>
+            </tr>
+
+            <tr>
+                <td><label>Last name</label></td>
+                <td><input type="text" id="lname" required> </td>
+            </tr>
+
+            <tr>
+                <td><label>Date of Birth</label></td>
+                <td><input type="text" id="dob" required> </td>
+            </tr>
+
+            <tr>
+                <td><label>email</label></td>
+                <td><input type="text" id="email" required> </td>
+            </tr>
+
+            <tr>
+                <td><label>Hobbies</label></td>
+                
+                    <td> <input type="checkbox" id="read">Reading <br>
+                    <input type="checkbox" id="movie" >Watching movies  <br>
+                    <input type="checkbox" id="photo" >Photography <br>
+                 </td>
+            </tr>
+
+            <tr id="writerRow" style="display: none;">
+                <td><label>Favourite writer</label></td>
+                <td><input type="text" id="writer"> </td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" id="sub"> </td>
+                <td><input type="reset" id="res"></td>
+            </tr>
+        </table>
+    </form>
+
+        <script>
+            document.getElementById("welcome").innerText="Welcome you are using "+navigator.appCodeName+" browser";
+            document.getElementById('read').addEventListener('click', function () {
+                var checked = this.checked;
+                var row=document.getElementById("writerRow");
+                if (checked) {
+                    row.style.display="block";
+                } else {
+                    row.style.display="none";
+                }
+            });
+           
+            function validated(){
+                var regName=/[a-zA-Z]$/;
+                var regDate=/^(0?[1-9]|[12][0-9]|3[01])[\-](0?[1-9]|1[012])[\-]\d{4}$/;
+                var fname=document.getElementById("fname").value;
+                var lname=document.getElementById("lname").value;
+                var dob=document.getElementById("dob").value;
+
+                if(!regName.test(fname)){
+                    alert("number not allowed");
+                    document.getElementById('fname').style.borderColor="red";
+                    document.getElementById('fname').focus();
+                    document.getElementById('fname').value=" ";
+                    return false;
+                }
+                if(!regName.test(lname)){
+                    alert("number not allowed");
+                    document.getElementById('lname').style.borderColor="red"
+                    document.getElementById('lname').focus();
+                    document.getElementById('lname').value=" ";
+                    return false;
+                }
+
+                if(!regDate.test(dob)){
+                    alert("number allowed only (date format dd-mm-yyyy)" );
+                    document.getElementById('dob').style.borderColor="red";
+                    document.getElementById('dob').focus();
+                    document.getElementById('dob').value=" ";
+                    return false;
+                }
+            }
+
+
+        </script>
+    </body>
+</html>

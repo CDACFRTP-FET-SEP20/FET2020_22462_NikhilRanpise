@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DATE</title>
+        <style>
+            table th,td{
+                table-layout: fixed;
+                border: 2px solid black;
+            }
+        </style>
+    </head>
+    <body>
+       Location Object properties
+       <table style="border: solid;">
+           <tr>
+               <th>HREF</th><td id="href"></td>
+           </tr>
+           <tr>
+            <th>Path name</th><td id="pname"></td>
+        </tr>
+        <tr>
+            <th>Protocol</th><td id="proto"></td>
+        </tr>
+       </table> 
+       <a href="Register.html">Click here</a> To register.
+
+       <script>
+           var href=location.href;
+           document.getElementById("href").innerText=href;
+
+           var proto=location.protocol;
+           document.getElementById("proto").innerText=proto;
+
+           var pathname=location.pathname;
+           document.getElementById("pname").innerText=pathname;
+       </script>
+    </body>
+</html>
