@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><title>Circle</title>
+</head>
+<body>
+    <canvas id="circle" height="500px" width="500px" style="margin-left: 100px; margin-top: 100px;"></canvas>
+    <script>
+
+        var c=document.getElementById("circle");
+        var pen=c.getContext("2d");
+
+        pen.beginPath();                        //for outer circle
+        pen.fillStyle="yellow";
+        pen.arc(75,75,75,0,2*Math.PI,true);
+        pen.fill();
+
+
+        pen.moveTo(110,75);                     //for mouth
+        pen.arc(75,75,36,0,Math.PI,false);
+        pen.moveTo(65,65);
+        pen.stroke();
+        pen.closePath();
+
+        pen.beginPath();                        //for left eye
+        pen.fillStyle="blue";
+        pen.arc(60,65,5,0,2*Math.PI,true);
+        pen.fill();
+
+        pen.moveTo(95,65);                      //for right eye
+        pen.stroke();
+        pen.closePath();
+        pen.beginPath();
+        pen.fillStyle="blue";
+        pen.arc(90,65,5,0,Math.PI,true);
+       pen.stroke();
+    </script>
+</body>
+</html>
