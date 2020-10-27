@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>asgn 4 form</title>
+        <style>
+            label{
+                text-align: left;
+                margin: 5px;
+                padding: 5px;
+            }
+            input{
+                text-align: right;
+                margin: 5px;
+                padding: 5px;
+            }
+            #form{
+                text-align: center;
+                border: black solid 2px;
+                width: auto;
+                height: 100%;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <form> 
+            <div id="form">
+                <label>Employee Id  </label><input type="number" required autofocus><br>
+
+                <label>First Name </label><input type="text" required  minlength="3"><br>
+
+                <label>Last Name </label><input type="text" required minlength="2"><br> 
+
+                
+                <label>Department </label>
+                <input type="radio" value="Hr" name="dept">IT <br>
+                <input type="radio" value="Finance"  name="dept">HR<br>
+                <input  type="radio" value="finance"  name="dept">FINANCE<br>
+                <input  type="radio" value="admin"  name="dept">ADMIN<br>
+
+                <label>Date of joining </label><input type="date" max="now()" value="2010-12-16"><br><br>
+
+                <label>Email </label>
+                <input type="email" required ><br><br>
+
+                
+                <label>Contact number </label>
+                <input type="tel" maxlength="10"><br><br>
+               
+                <label>Address</label>
+                <input type="textarea" rows="3" cols="10"><br>
+               
+               
+                <label>Training programs to be attainded</label>
+                <input type="checkbox" value="web" >Web basics <br>
+                <input type="checkbox" value="csharp">C#<br>
+                <input  type="checkbox" value="entity">Entity framework<br>
+                <input  type="checkbox" value="mvc">ASP .NET MVC<br>
+               
+                <br><br><input type="submit" value="submit">
+               
+                <input type="reset" value="cancle">
+            </div>
+           
+        </form>
+    </body>
+</html>

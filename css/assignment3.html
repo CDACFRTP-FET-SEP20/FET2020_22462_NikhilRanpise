@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>nav bar</title>
+        <style>
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+              background-color: green;
+            }
+            a:hover {
+              color: blanchedalmond;
+
+            }
+            a{
+              text-decoration: none;
+            }
+            
+            li {
+              float: left;
+            }
+            
+            li a, .dropbtn {
+              display: inline-block;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+            }
+            
+            .dropbtn {
+            background-color: green;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+          }
+           
+            li.dropdown {
+              display: inline-block;
+            }
+            
+            .dropdown-content {
+              display: none;
+              position: absolute;
+              background-color: green;
+            
+             
+            }
+            
+            .dropdown-content a {
+              color: blanchedalmond;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+              text-align: left;
+            }
+            
+            .dropdown-content a:hover {background-color: green;}
+            
+            .dropdown:hover .dropdown-content {
+              display: block;
+            }
+            </style>
+            </head>
+            <body>
+            
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li class="dropdown">
+                    <button href="#" class="dropbtn "> Products</button>
+                    <div class="dropdown-content">
+                        <a href="#">Engineering</a>
+                        <a href="#">Telecom</a>
+                        <a href="#">Enery</a>
+                        <a href="#">Finance</a>
+                        <a href="#">Consultancy</a>
+                    </div>
+                </li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+    </body>
+</html>
