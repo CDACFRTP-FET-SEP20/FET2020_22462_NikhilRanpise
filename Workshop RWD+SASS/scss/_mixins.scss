@@ -1,0 +1,12 @@
+@mixin block($w,$h,$bg){
+    height: $h;
+    width: $w;
+    background-color: $bg;
+}
+
+@mixin links( $width,$height,$display,$float){
+    width: $width;
+    height: $height;
+    display: $display;
+    float: $float;
+}
