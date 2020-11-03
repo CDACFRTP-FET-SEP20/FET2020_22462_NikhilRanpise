@@ -1,0 +1,296 @@
+Queries:- 
+1. Select the detail of the employee whose name start with P. 
+mysql> select * from employee where empname like 'p%';
++-------+---------+------------+------------+-----------------+-----------+
+| empid | empname | department | contactno  | emaildid        | empheadid |
++-------+---------+------------+------------+-----------------+-----------+
+|   102 | Priya   | E-104      | 1234567890 | priya@yahoo.com |       103 |
++-------+---------+------------+------------+-----------------+-----------+
+
+2. How many permanent candidate take salary more than 5000. 
+mysql> select empid from empsalary where empsalary.salary>5000;
++-------+
+| empid |
++-------+
+|   102 |
+
+
+3. Select the detail of employee whose emailId is in gmail. 
+mysql> select * from employee where emaildid like '%gmail%';
++-------+----------+------------+------------+--------------------+-----------+
+| empid | empname  | department | contactno  | emaildid           | empheadid |
++-------+----------+------------+------------+--------------------+-----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
++-------+----------+------------+------------+--------------------+-----------+
+
+4. Select the details of the employee who work either for department E-104 or E-102
+mysql> select * from empdept where deptid='e-104' or deptid='e-102';
++--------+-------------+----------+----------+
+| deptid | deptname    | dept_off | depthead |
++--------+-------------+----------+----------+
+| E-102  | Development | Tuesday  |      101 |
+| E-104  | Sales       | Sunday   |      104 |
++--------+-------------+----------+----------+
+
+5. What is the department name for DeptID E-102
+mysql> select deptname from empdept where deptid='e-102';
++-------------+
+| deptname    |
++-------------+
+| Development |
++-------------+
+
+6. What is total salary that is paid to permanent employees 
+mysql> select sum(salary) as 'total salary' from empsalary where ispermanent='ye
+s';
++--------------+
+| total salary |
++--------------+
+|        16200 |
++--------------+
+
+7. List name of all employees whose name ends with a.
+mysql> select empname as 'employee name ends with a' from employee where empname
+ like '%a';
++---------------------------+
+| employee name ends with a |
++---------------------------+
+| Isha                      |
+| Priya                     |
+| Neha                      |
++---------------------------+
+
+8. List the number of department of employees in each project. 
+mysql> select count(*) as 'number of employees', projectid from empproject group
+ by projectid;
++---------------------+-----------+
+| number of employees | projectid |
++---------------------+-----------+
+|                   2 | p-1       |
+|                   1 | p-2       |
+|                   2 | p-4       |
++---------------------+-----------+
+
+9. How many projects started in year 2010.
+mysql> select count(*) as 'project started in year 2010',startyear,projectid fro
+m empproject where startyear=2010;
++------------------------------+-----------+-----------+
+| project started in year 2010 | startyear | projectid |
++------------------------------+-----------+-----------+
+|                            1 |      2010 | p-1       |
++------------------------------+-----------+-----------+
+
+10. How many projects started and finished in the same year. 
+mysql> select * from empproject where startyear=endyear;
++-------+-----------+----------+-----------+---------+
+| empid | projectid | clientid | startyear | endyear |
++-------+-----------+----------+-----------+---------+
+|   101 | p-1       | cl-1     |      2010 |    2010 |
+|   104 | p-4       | cl-1     |      2015 |    2015 |
++-------+-----------+----------+-----------+---------+
+
+11. Select the name of the employee whose name's 3rd character is 'h'. 
+mysql> select empname as 'h as third letter' from employee where empname like '_
+_h%';
++-------------------+
+| h as third letter |
++-------------------+
+| Isha              |
+| Neha              |
+| Rahul             |
+| Abhishek          |
++-------------------+
+
+==============================================================================================================
+
+SubQuery:-
+ 1. Select the department name of the company which is assigned to the employee whose employee id is greater 103.
+mysql> select deptname,depthead from empdept where depthead in(select empid from
+ employee where empid>103);
++----------+----------+
+| deptname | depthead |
++----------+----------+
+| HR       |      105 |
+| Sales    |      104 |
+| Purchase |      104 |
++----------+----------+
+
+2. Select the name of the employee who is working under Abhishek.
+mysql> select empname as 'working under abhishek' from employee where empheadid=
+(select empid from employee where empname='abhishek');
++------------------------+
+| working under abhishek |
++------------------------+
+| Isha                   |
+| Rahul                  |
++------------------------+
+
+3. Select the name of the employee who is department head of HR.
+mysql> select empname as 'department head of hr' from employee where empid=(sele
+ct depthead from empdept where deptname='hr');
++-----------------------+
+| department head of hr |
++-----------------------+
+| Abhishek              |
++-----------------------+
+
+4. Select the name of the employee head that is permanent.
+mysql> select empname from employee where empheadid in(select empid from empsala
+ry where ispermanent='yes');
++----------+
+| empname  |
++----------+
+| Isha     |
+| Neha     |
+| Rahul    |
+| Abhishek |
++----------+
+
+5. Select the name and email of the Dept Head who is not permanent.
+mysql> select empname,emaildid from employee where empheadid=(select empid from
+empsalary where ispermanent='no');
++---------+-----------------+
+| empname | emaildid        |
++---------+-----------------+
+| Priya   | priya@yahoo.com |
++---------+-----------------+
+
+6. Select the employee whose department off is Monday.
+mysql> select empname from employee where department =(select deptid from empdep
+t where dept_off='monday');
++----------+
+| empname  |
++----------+
+| Isha     |
+| Neha     |
+| Abhishek |
++----------+
+
+7. Select the Indian clients’ details.
+mysql> select * from clienttable where cid=(select cid from country where cname=
+'india');
++----------+----------------+------+
+| clientid | clientname     | cid  |
++----------+----------------+------+
+| cl-1     | ABC Group      | c-1  |
+| cl-2     | PQR Industries | c-1  |
++----------+----------------+------+
+
+8. Select the details of all employees working in development department.
+mysql> select * from employee where department= (select deptid from empdept wher
+e deptname='development');
++-------+---------+------------+------------+-----------------+-----------+
+| empid | empname | department | contactno  | emaildid        | empheadid |
++-------+---------+------------+------------+-----------------+-----------+
+|   104 | Rahul   | E-102      | 1234567890 | rahul@yahoo.com |       105 |
++-------+---------+------------+------------+-----------------+-----------+
+
+==============================================================================================================
+
+Joins:- 
+1. Select the details of employees to display the salary of only permanent employees.
+mysql> select * from employee left join empsalary on employee.empid=empsalary.em
+pid where empsalary.ispermanent='yes';
++-------+----------+------------+------------+--------------------+-----------+-
+------+--------+-------------+
+| empid | empname  | department | contactno  | emaildid           | empheadid |
+empid | salary | ispermanent |
++-------+----------+------------+------------+--------------------+-----------+-
+------+--------+-------------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+  101 |   2000 | Yes         |
+|   102 | Priya    | E-104      | 1234567890 | priya@yahoo.com    |       103 |
+  102 |  10000 | Yes         |
+|   104 | Rahul    | E-102      | 1234567890 | rahul@yahoo.com    |       105 |
+  104 |   1900 | Yes         |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
+  105 |   2300 | Yes         |
++-------+----------+------------+------------+--------------------+-----------+-
+------+--------+-------------+
+
+2. Display all the employees with the names of their heads 
+mysql> select a.empname as employee,b.empname as head from employee a,employee b
+ where a.empid=b.empheadid;
++----------+----------+
+| employee | head     |
++----------+----------+
+| Isha     | Neha     |
+| Priya    | Abhishek |
+| Neha     | Priya    |
+| Abhishek | Isha     |
+| Abhishek | Rahul    |
++----------+----------+
+
+=============================================================================================================
+Stored Procedures:- 
+1. Create SP for Insert, Update and Delete on Employee table
+...for insert
+delimiter //
+create procedure InsertEmployee  
+(  
+   IN empid INTEGER,  
+   IN empname VARCHAR(100),  
+   IN department VARCHAR(100),  
+   IN contactno bigint,  
+   IN emaildid VARCHAR(100),  
+   IN empheadid INTEGER  
+)  
+ 
+BEGIN   
+insert into employee(empid,empname,department,contactno,emaildid,empheadid) values( empid,empname,department,contactno,emaildid,empheadid);  
+END //
+
+delimiter ;
+
+...for update
+delimiter //
+create procedure UpdateEmployee  
+(  
+   IN empid INTEGER,  
+   IN empname VARCHAR(100),  
+   IN department VARCHAR(100),  
+   IN contactno bigint,  
+   IN emaildid VARCHAR(100),  
+   IN empheadid INTEGER  
+)  
+ 
+BEGIN   
+UPDATE employee SET  
+empname = empname, departmnet = departmnet, contactno= contactno,  
+emaildid = emaildid, empheadid=empheadid 
+WHERE empid = empid;  
+END //
+delimiter ;
+
+...for delete
+delimiter //
+create procedure DeleteEmployee  
+(  IN id INTEGER
+)
+BEGIN
+DELETE FROM employee WHERE empid=id;
+END //
+delimiter ;
+
+			------------
+
+2. Create SP to display Employee info with maximum salary
+mysql> DELIMITER //
+mysql> CREATE PROCEDURE maxSalEmployee()
+    -> BEGIN
+    ->  select * from employee where empid=(select empid from empsalary where sa
+lary=(select max(salary) from empsalary));
+    -> END //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> DELIMITER ;
+mysql> call maxSalEmployee();
++-------+---------+------------+------------+-----------------+-----------+
+| empid | empname | department | contactno  | emaildid        | empheadid |
++-------+---------+------------+------------+-----------------+-----------+
+|   102 | Priya   | E-104      | 1234567890 | priya@yahoo.com |       103 |
++-------+---------+------------+------------+-----------------+-----------+
+1 row in set (0.00 sec)
