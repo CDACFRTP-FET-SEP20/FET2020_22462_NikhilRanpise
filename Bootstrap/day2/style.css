@@ -1,0 +1,49 @@
+@import "../bootstrap-4.5.3-dist/bootstrap-4.5.3-dist/css/bootstrap.min.css";
+
+div{
+    background-color: silver;
+    border: 2px dashed purple;
+}
+
+.cbord{
+    border: 2px solid black;
+}
+
+.rowStyle{
+    height: 100px;
+    background-color: springgreen;
+}
+@media all and (min-width:576px)
+{
+    body{
+        background-color: burlywood;
+    }
+}
+
+@media all and (min-width:768px)
+{
+    body{
+        background-color:cadetblue;
+    }
+}
+
+@media all and (min-width:992px)
+{
+    body{
+        background-color: cyan;
+    }
+}
+
+@media all and (min-width:1200px)
+{
+    body{
+        background-color: darkgrey;
+    }
+}
+
+@media all and (max-width:576px)
+{
+    body{
+        background-color: red;
+    }
+}
