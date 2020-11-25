@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p [ngStyle]= "{'font-weight':'bold','color':'royalblue'}">
+    Actor name:  {{aName}}<br>
+    Role played:  {{aCharacter}}<br>
+
+  </p>
+
+  <p *ngIf="isHandsome"> </p>
+  <!-- <div [ngStyle]="{'background-color':'green'}"> Hello</div> -->
+  <div id="styleDiv" [ngClass]="['bg-primary','text-center']"> {{aName}}<br> {{aCharacter}} </div>
+
+  <button (click)="welcome()">Click me for alert message</button><br/>
+
+  Enter Name <input [(ngModel)]="aName" />
+  
+
+
+</body>
+</html>
