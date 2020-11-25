@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p [ngStyle]= "{'font-weight':'bold','font-size': 16+'px','font-family': 'Verdana','color':'royalblue'}">
+    Actor name:  {{aName}}<br>
+    Role played:  {{aCharacter}}<br>
+
+  </p>
+
+  
+  <!-- <div [ngStyle]="{'background-color':'green'}"> Hello</div> -->
+   <div id="styleDiv" [ngClass]="isHandsome==true?'class1':'class2'">
+    <p [ngStyle]= "{'font-weight':'bold','color':'green','background-color':'gray' }"></p>
+    Actor name is <p [innerText]=aName></p>
+    Actor role is <p [innerText]=aCharacter></p>
+</div>
+
+  <button (click)="welcome()">Click me for alert message</button><br/>
+
+  2 way data binding <br>
+  Enter Name <input [(ngModel)]="aName" />
+  <p>in upper case <i>{{aCharacter | uppercase }} </i></p>
+  <p>in lower case <i>{{aCharacter | lowercase }} </i> </p>
+
+
+</body>
+</html>
