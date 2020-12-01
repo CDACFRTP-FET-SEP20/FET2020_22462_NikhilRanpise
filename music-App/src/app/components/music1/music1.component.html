@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body class="container-fluid">
+  
+
+    <div>
+      <div class="text-center" id="pricing">get a prime account @just {{member | currency}} on {{date | date:'short'}} <br></div>
+      <input [(ngModel)]="msg" placeholder="Enter song name"/>
+      <!-- property binding -->
+      <!-- <h4 innerText="{{ msg }}"></h4> -->
+      
+      
+      <!-- string interpollation -->
+      <!-- <h4 innerText="{{ pageTitle }}"></h4> -->
+
+      <button (click)="toggleImg()">{{ isShow ? "Hide" : "Show" }}</button>
+      <!-- if array is empty no table will be shown on view due to *ngIf directivr -->
+      <table class="table table-dark table-hover " *ngIf="music && music.length">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Song</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Singer</th>
+            <th scope="col">Album Cover</th>
+            <th scope="col">song</th>
+            <th scope="col">controlls</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- for loop for angular -->
+          <tr *ngFor="let m of music |search:msg">
+            <td>{{ m.mid }}</td>
+            <td>{{ m.name |uppercase }}</td>
+            <td>{{ m.genre }}</td>
+            <td>{{ m.singer | titlecase}}</td>
+            <td><img [src]="m.cover" *ngIf="isShow" /></td>
+            <td>
+              <audio controls id="audio" *ngIf="isShow">
+                <source [src]="m.song" type="audio/mp3" />
+                Your browser does not support the audio element.
+              </audio>
+            </td>
+            <td>
+              <button (click)="pauseAudio()" id="pause"> Pause</button>
+              <button (click)="playAudio(m.song)" id="play"> Play</button>
+              <button (click)="stopAudio()" id="stop"> Stop</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="bg-danger" *ngIf="!(music && music.length)">
+        failed to load music
+      </p>
+
+      <br />
+      <!-- alert msg button  -->
+      <!-- <button (click)="buttonClicked()">Click me for alert message</button><br /> -->
+
+      <!-- {{"custom pipe" | cts}} -->
+      <!-- <button (click)="pauseAudio()">Pause audio</button> -->
+    </div>
+  </body>
+</html>

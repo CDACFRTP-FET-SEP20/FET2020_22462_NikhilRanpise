@@ -1,0 +1,24 @@
+#addMusic{
+    display: block;
+    margin:auto;
+    border: red 1px dotted;
+    text-align: center;
+
+    input{
+        display: block;
+        margin:auto;
+    }
+}
+
+.alert{
+    color:red;
+    margin: 0px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-right: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-right: 5px solid #a94442; /* red */
+  }

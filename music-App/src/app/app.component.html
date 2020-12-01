@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header></header>
+    <div> parent count:{{parentCount}}</div>
+      <app-counter [count]="parentCount"
+       (sendCount)='updateCount($event)'>
+      </app-counter>
+      <app-add-music></app-add-music>
+    <app-music1></app-music1>
+    <app-footer-components></app-footer-components>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+})
+export class AppComponent {
+  title = 'music-app';
+
+  parentCount: number = 0;
+  updateCount(event:any) {
+    this.parentCount = event;
+  }
+}

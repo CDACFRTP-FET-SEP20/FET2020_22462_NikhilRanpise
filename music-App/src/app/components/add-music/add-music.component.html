@@ -1,0 +1,16 @@
+<div id="addMusic">
+    <form (submit)="getMusicForm(musicForm)" #musicForm="ngForm" >
+        <h1>Template driven</h1>
+        <h2>Enter song details to add</h2>
+        Song name   <input type="text" name="name" id="name" [(ngModel)]="music.name" 
+        class="ng-untouched ng-pristine ng-valid" required #name="ngModel" /> 
+        <div [hidden]="name.valid || name.pristine"
+     class="alert">Must  enter Song title</div>
+        
+        Singer name <input type="text" name="singer" id="singer" [(ngModel)]="music.singer"
+        class="ng-untouched ng-pristine ng-valid" required #singer="ngModel"/>
+        Song Genre  <input type="text" name="genre" id="genre" [(ngModel)]="music.genre"
+        class="ng-untouched ng-pristine ng-valid"  #genre="ngModel"/>
+        <input type="submit" value="Add" class="btn btn-danger">
+    </form>
+</div>
